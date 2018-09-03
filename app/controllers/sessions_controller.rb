@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
     @user = User.find_by_screen_name(params[:session][:screen_name])
     if @user && @user.authenticate(params[:session][:password])
       log_in @user
+      flash[:success] = "Logged in successfully."
       redirect_to root_path
     else
       flash[:danger] = "Invalid ID/Password Combination."
