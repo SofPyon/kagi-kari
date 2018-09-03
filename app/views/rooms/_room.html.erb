@@ -1,5 +1,11 @@
-<p>
-  <b><%= room.name %></b> - <%= room.description %> |
-  <%= link_to "Edit", "#" %>
-  <%= link_to "Destroy", "#" %>
-</p>
+<div class="col-md-4">
+  <div class="card h-100">
+    <h2 class="card-header"><%= room.name %></h2>
+    <div class="card-body">
+      <p class="card-text"><%= room.description %></p>
+    </div>
+    <div class="card-footer p-0">
+      <%= render 'rooms/borrow_form', room: room %>
+    </div>
+  </div>
+</div>
