@@ -1,0 +1,7 @@
+.invalid-feedback {
+  display: block;
+}
+
+.field_with_errors .form-control {
+  @extend .is-invalid;
+}
