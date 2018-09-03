@@ -3,4 +3,5 @@ class Activity < ApplicationRecord
   belongs_to :room
   enum action: { borrowing: 1, returning: 0 }
   validates :action, presence: true
+  default_scope { order(created_at: :desc) }
 end
