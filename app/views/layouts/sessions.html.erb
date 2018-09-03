@@ -1,4 +1,9 @@
 <% content_for :content do %>
-  <%= yield %>
+  <div class="sessions">
+    <div class="sessions__container">
+      <h1 class="sessions__brand">Kagikari</h1>
+      <%= yield %>
+    </div>
+  </div>
 <% end %>
 <%= render template: "layouts/application" %>
