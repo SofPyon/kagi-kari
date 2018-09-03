@@ -1,4 +1,7 @@
 class User < ApplicationRecord
   has_many :activities, dependent: :destroy
+  validates :screen_name, presence: true, length: { minimum: 3, maximum: 20 }
+  validates :name,        presence: true, length: { maximum: 20 }
   has_secure_password
+  validates :password,    presence: true, length: { minimum: 8 }
 end
