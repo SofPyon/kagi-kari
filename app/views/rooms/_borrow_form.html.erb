@@ -1,0 +1,5 @@
+<% if room.borrowed? %>
+  <%= render 'rooms/return' %>
+<% else %>
+  <%= render 'rooms/borrow' %>
+<% end %>
