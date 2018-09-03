@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'rooms/index'
+
+  get 'rooms/new'
+
+  get 'rooms/edit'
+
+  get 'rooms/destroy'
+
   root 'static_pages#index'
   resources :sessions, only: [:new, :create]
   delete 'sessions', to: 'sessions#destroy'
