@@ -18,8 +18,8 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 
   test "valid login info" do
     get new_session_path
-    post sessions_path, params { session: { screen_name: @user.screen_name,
-                                            password:    @user.password } }
+    post sessions_path, params: { session: { screen_name: @user.screen_name,
+                                             password:    'password' } }
     assert_redirected_to root_path
     assert_not flash[:success].empty?
   end
