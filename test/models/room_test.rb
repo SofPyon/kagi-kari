@@ -15,6 +15,11 @@ class RoomTest < ActiveSupport::TestCase
     assert @room.valid?
   end
 
+  test "name should be present" do
+    @room.name = "     "
+    assert_not @room.valid?
+  end
+
   test "name should be at most 30 characters" do
     @room.name = "あいう" * 10 # 30 characters
     assert @room.valid?
