@@ -1,6 +1,6 @@
 module ApplicationHelper
 
-  def full_title(title)
+  def full_title(title = "")
     site_title = "Kagikari"
 
     if title.blank?
