@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by_screen_name(params[:session][:screen_name])
     if @user && @user.authenticate(params[:session][:password])
-      log_in user
+      log_in @user
       # redirect_to root_path
     else
       flash[:danger] = "Invalid ID/Password Combination."
