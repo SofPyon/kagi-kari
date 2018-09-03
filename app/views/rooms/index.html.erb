@@ -1,2 +1,8 @@
 <h1>Rooms#index</h1>
-<%= render @rooms %>
+<% @rooms.each do |room| %>
+<p>
+  <b><%= room.name %></b> - <%= room.description %> |
+  <%= link_to "Edit", "#" %>
+  <%= link_to "Destroy", "#" %>
+</p>
+<% end %>
