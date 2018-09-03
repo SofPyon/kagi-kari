@@ -1,9 +1,7 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+main_room:
+  name: メインの部屋
+  description: これはメインの部屋です
 
-one:
-  name: MyString
-  description: MyText
-
-two:
-  name: MyString
-  description: MyText
+sub_room:
+  name: サブの部屋
+  description: これはサブの部屋です

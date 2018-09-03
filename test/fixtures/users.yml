@@ -1,0 +1,9 @@
+john:
+  screen_name: john
+  name: 大河原ジォン太郎
+  password_digest: <%= User.digest('password') %>
+
+dann:
+  screen_name: dann
+  name: 大井村ドァン次郎
+  password_digest: <%= User.digest('password') %>

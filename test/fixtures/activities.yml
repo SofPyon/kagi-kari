@@ -1,11 +1,17 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+borrow_main:
+  user: john
+  room: main_room
+  action: 1 # borrowing
+  created_at: <%= 2.hours.ago %>
 
-one:
-  user: 
-  room: 
-  action: 1
+return_main:
+  user: dann
+  room: main_room
+  action: 0 # returning
+  created_at: <%= 3.minutes.ago %>
 
-two:
-  user: 
-  room: 
-  action: 1
+borrow_sub:
+  user: john
+  room: sub_room
+  action: 1 # borrowing
+  created_at: <%= Time.zone.now %>
