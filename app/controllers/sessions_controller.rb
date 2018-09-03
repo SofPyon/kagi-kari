@@ -8,7 +8,8 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       # redirect_to root_path
     else
-      redirect_to new_session_path, alert: "Invalid ID/Password Combination."
+      flash[:danger] = "Invalid ID/Password Combination."
+      redirect_to new_session_path
     end
   end
 end
