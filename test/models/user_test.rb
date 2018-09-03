@@ -22,7 +22,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "password should be present" do
-    @user.password = "   "
+    @user.password = " " * 8
     assert_not @user.valid?
   end
 
@@ -56,10 +56,10 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "password should be at least 8 characters" do
-    @user.password = "a" * 7
+    @user.password = @user.password_confirmation = "a" * 7
     assert_not @user.valid?
 
-    @user.password = "a" * 8
+    @user.password = @user.password_confirmation = "a" * 8
     assert @user.valid?
   end
 end
