@@ -9,6 +9,6 @@ class User < ApplicationRecord
   def self.digest(unencrypted)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
-    BCrypt::Password.create(unencrypted, cost: cost))
+    BCrypt::Password.create(unencrypted, cost: cost)
   end
 end
