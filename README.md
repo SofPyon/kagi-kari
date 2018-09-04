@@ -1,5 +1,7 @@
 # Kagikari: 鍵借り管理システム
 
+![Screencast of Kagikari](https://github.com/nodaridaisai/kagi-kari/tree/master/media/screencast.gif)
+
 ## Install and Run
 ```
 $ bundle install
