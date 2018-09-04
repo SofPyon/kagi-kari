@@ -1,3 +1,23 @@
 <div class="row">
   <%= render @rooms %>
 </div>
+
+<hr>
+
+<h1>Activities</h1>
+<ul>
+  <% @activities.each do |activity| %>
+    <li>
+      <b><%= activity.room.name %></b>
+      has been
+      <b><%= activity.borrowing? ? 'borrowed' : 'returned' %></b>
+      by
+      <b><%= activity.user.name %></b>
+      <span class="text-muted">
+        -
+        <%= time_ago_in_words activity.created_at %>
+        ago
+      </span>
+    </li>
+  <% end %>
+</ul>
