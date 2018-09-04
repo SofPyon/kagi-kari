@@ -8,8 +8,15 @@ class ActivitiesTest < ActionDispatch::IntegrationTest
     log_in_as(@user)
   end
 
+  test "rooms shown at root" do
+    get root_path
+    @rooms.each do |room|
+      assert_match CGI.escapeHTML(room.name), response.body
+    end
+  end
+
   test "borrow room without logged in" do
-    session.delete(:user_id)
+    delete sessions_path
     assert_no_difference 'Activity.count' do
       post activities_path, params: { activity: { room_id: @rooms[0].id,
                                                   action:  'borrowing' } }
@@ -21,17 +28,12 @@ class ActivitiesTest < ActionDispatch::IntegrationTest
   test "borrow room" do
     get root_path
     assert_select 'form[action=?]', activities_path
-    assert_select 'input[type=hidden][action=borrowing]', count: @rooms.count
-    assert_select 'input[type=hidden][action=returning]', count: 0
     assert_difference 'Activity.count', 1 do
       post activities_path, params: { activity: { room_id: @rooms[0].id,
                                                   action:  'borrowing' } }
     end
     assert_redirected_to root_path
     assert_not flash[:success].empty?
-    follow_redirect!
-    assert_select 'input[type=hidden][action=borrowing]', count: @rooms.count - 1
-    assert_select 'input[type=hidden][action=returning]', count: 1
   end
 
   test "return room" do
@@ -47,9 +49,6 @@ class ActivitiesTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to root_path
     assert_not flash[:success].empty?
-    follow_redirect!
-    assert_select 'input[type=hidden][action=borrowing]', count: @rooms.count
-    assert_select 'input[type=hidden][action=returning]', count: 0                            
   end
 
   test "should not return room already returned" do
