@@ -14,7 +14,7 @@ end
 class ActionDispatch::IntegrationTest
   
   # テストユーザーとしてログインする
-  def log_in_as(user, password: 'password', remember_me: '1')
+  def log_in_as(user, password: 'password', remember_me: '0')
     post sessions_path, params: { session: { screen_name: user.screen_name,
                                              password: password,
                                              remember_me: remember_me } }
