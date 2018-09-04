@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
     @user = User.find_by_screen_name(params[:session][:screen_name])
     if @user && @user.authenticate(params[:session][:password])
       log_in @user
+      params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
       flash[:success] = "Logged in successfully."
       redirect_to root_path
     else
