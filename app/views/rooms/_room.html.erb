@@ -1,17 +1,13 @@
 <div class="col-md-4 pb-4">
   <div class="card h-100">
-    <h2 class="card-header d-flex justify-content-between align-items-center">
-      <%= room.name %>
-      <% if room.borrowed? %>
-        <small class="badge badge-primary text-uppercase rooms__badge">
-          In use
-        </small>
-      <% end %>
+    <h2 class="card-header d-flex justify-content-between align-items-center"
+        id="room_header-<%= room.id %>">
+      <%= render 'rooms/room_header', room: room %>
     </h2>
     <div class="card-body">
       <p class="card-text"><%= room.description %></p>
     </div>
-    <div class="card-footer p-0">
+    <div class="card-footer p-0" id="borrow_form-<%= room.id %>">
       <%= render 'rooms/borrow_form', room: room %>
     </div>
   </div>

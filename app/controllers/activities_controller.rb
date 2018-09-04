@@ -2,15 +2,18 @@ class ActivitiesController < ApplicationController
   before_action :require_log_in
 
   def create
-    room = Room.find(params[:activity][:room_id])
-    activity = room.activities.build(activity_params)
-    if activity.save
-      flash[:success] = "Status changed."
+    @room = Room.find(params[:activity][:room_id])
+    @activity = @room.activities.build(activity_params)
+    if @activity.save
+      @room.reload
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.js
+      end
     else
       flash[:danger] = "Invalid request."
+      redirect_to root_path
     end
-
-    redirect_to root_path
   end
 
   def destroy

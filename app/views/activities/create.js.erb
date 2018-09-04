@@ -1,0 +1,5 @@
+$('#room_header-<%= @room.id %>').html("<%= j(render 'rooms/room_header',
+                                                     room: @room) %>");
+$('#borrow_form-<%= @room.id %>').html("<%= j(render 'rooms/borrow_form',
+                                                        room: @room) %>");
+$('#activities').prepend("<%= j(render @activity, activity: @activity) %>");

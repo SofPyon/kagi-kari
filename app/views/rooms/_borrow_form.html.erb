@@ -1,6 +1,6 @@
 <% activity = room.activities.build(action: (room.borrowed? ? 'borrowing'
                                                             : 'returning')) %>
-<%= form_tag(activities_path) do %>
+<%= form_tag(activities_path, remote: true, authenticity_token: true) do %>
   <%= hidden_field_tag('activity[room_id]', room.id) %>
   <%= hidden_field_tag('activity[action]', (room.borrowed? ? 'returning'
                                                            : 'borrowing')) %>
