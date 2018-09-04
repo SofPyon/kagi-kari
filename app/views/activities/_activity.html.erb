@@ -1,0 +1,12 @@
+<li>
+  <b><%= activity.room.name %></b>
+  has been
+  <b><%= activity.borrowing? ? 'borrowed' : 'returned' %></b>
+  by
+  <b><%= activity.user.name %></b>
+  <span class="text-muted">
+    -
+    <%= time_ago_in_words activity.created_at %>
+    ago
+  </span>
+</li>
