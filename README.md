@@ -1,6 +1,6 @@
 # Kagikari: 鍵借り管理システム
 
-![Screencast of Kagikari](https://github.com/nodaridaisai/kagi-kari/tree/master/media/screencast.gif)
+![Screencast of Kagikari](https://raw.githubusercontent.com/nodaridaisai/kagi-kari/master/media/screencast.gif)
 
 ## Install and Run
 ```
