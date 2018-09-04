@@ -1,5 +1,10 @@
-<% if room.borrowed? %>
-  <%= render 'rooms/return' %>
-<% else %>
-  <%= render 'rooms/borrow' %>
+<% activity = room.activities.build(action: (room.borrowed? ? 'borrowing'
+                                                            : 'returning')) %>
+<%= form_tag(activities_path) do %>
+  <%= hidden_field_tag('activity[room_id]', room.id) %>
+  <%= hidden_field_tag('activity[action]', (room.borrowed? ? 'returning'
+                                                           : 'borrowing')) %>
+  <%= submit_tag(room.borrowed? ? 'Returned?' : 'Borrowed?',
+                 class: "btn btn-block btn-" + (room.borrowed? ? 'danger'
+                                                               : 'primary')) %>
 <% end %>
