@@ -3,6 +3,6 @@ class StaticPagesController < ApplicationController
 
   def index
     @rooms = Room.includes(activities: :user).all
-    @activities = Activity.all
+    @activities = Activity.take(50)
   end
 end
