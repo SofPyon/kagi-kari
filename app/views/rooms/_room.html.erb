@@ -1,6 +1,13 @@
 <div class="col-md-4 pb-4">
   <div class="card h-100">
-    <h2 class="card-header"><%= room.name %></h2>
+    <h2 class="card-header d-flex justify-content-between align-items-center">
+      <%= room.name %>
+      <% if room.borrowed? %>
+        <small class="badge badge-primary text-uppercase rooms__badge">
+          In use
+        </small>
+      <% end %>
+    </h2>
     <div class="card-body">
       <p class="card-text"><%= room.description %></p>
     </div>
