@@ -3,16 +3,15 @@ require 'test_helper'
 class ActivityTest < ActiveSupport::TestCase
 
   def setup
-    @borrow_main = activities(:borrow_main)
-    @return_main = activities(:return_main)
-    @borrow_sub  = activities(:borrow_sub)
+    @borrow_main = activities(:borrow_main) # 1. Borrow main
+    @return_main = activities(:return_main) # 2. Return main
+    @borrow_sub  = activities(:borrow_sub)  # 3. Borrow sub
   end
 
-  test "should be valid" do
-    assert @borrow_main.valid?
-    assert @return_main.valid?
-    assert @borrow_sub.valid?
-  end
+  # These tests are run after step 3 done.
+  # In other words:
+  #  - Main room : Already returned
+  #  - Sub room  : Borrowing
 
   test "action should be present" do
     @borrow_main.action = nil
