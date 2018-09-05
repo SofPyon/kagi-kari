@@ -22,3 +22,4 @@ After, you can log in with `screen_name`(`ID`) and `password`.
 ## To Do
  - Export activities
  - Sign up feature
+ - めちゃくちゃな英語をなんとかする
