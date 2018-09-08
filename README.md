@@ -10,7 +10,7 @@ $ rails s
 ```
 
 ## Add User
-To use `Kagikari`, you should create new user account.
+To use `Kagikari`, you should create a user account.
 
 ```
 $ rails c
